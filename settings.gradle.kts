@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "ZT_File"
 include(":app")
 include(":zt-file-logcate")
+include(":zt_datastore")
