@@ -42,15 +42,32 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
         Button(onClick = {
 
+            var logStr = "写入日志 " + System.currentTimeMillis()
+
+            LogManagerV1.getInstance().logMessage(logStr)
         }) {
             Text(
                 text = "存储日志 LogManagerV1",
             )
         }
 
-        Button(onClick = {}) {
+        Button(onClick = {
+            var logStr = "写入日志 " + System.currentTimeMillis()
+
+
+            LogManagerV2.getInstance().writeTextToFile(logStr)
+        }) {
             Text(
                 text = "存储日志 LogManagerV2",
+            )
+        }
+        Button(onClick = {
+            var logStr = "写入日志 " + System.currentTimeMillis()
+
+            LogManagerV3.getInstance().logMessage(logStr)
+        }) {
+            Text(
+                text = "存储日志 LogManagerV3",
             )
         }
 

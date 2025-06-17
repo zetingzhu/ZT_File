@@ -23,8 +23,8 @@ public class LogManagerV3 {
     private static final String TAG = "LogManager";
     private static final int MAX_LOG_DAYS = 10;
     private final Context context;
+    private String dirName = "fileLogV3"; // 保存文件夹名字
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private static class InnerClass {
         private static final LogManagerV3 INSTANCE = new LogManagerV3();
@@ -77,7 +77,7 @@ public class LogManagerV3 {
      * 获取存储目录
      */
     public File getLogDirFile() {
-        return context.getExternalFilesDir("fileLog");
+        return context.getExternalFilesDir(dirName);
     }
 
     private String getCurrentDate() {
